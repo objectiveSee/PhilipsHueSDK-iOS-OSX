@@ -11,13 +11,13 @@ Pod::Spec.new do |s|
 
   s.source       = { :git => 'git@github.com:objectiveSee/PhilipsHueSDK-iOS-OSX.git', :tag => 'v1.1.3beta' }
 
-  s.ios.public_header_files = 'HueSDK_iOS.framework/Headers/*'
-  s.ios.vendored_frameworks = 'HueSDK_iOS.framework'
 
   s.dependency 'CocoaLumberjack', '~> 1.8'
 
 
-#  s.xcconfig     = { 'HEADER_SEARCH_PATHS' => '"$(SDKROOT)/usr/include/libxml2"' }
-  s.xcconfig  =   { 'HEADER_SEARCH_PATHS' =>  "$(PODS_ROOT)/PhilipsHueiOS/Frameworks/HueSDK_iOS.framework/Headers" }
+  s.ios.public_header_files = 'HueSDK_iOS.framework/Headers/*'
+  s.ios.vendored_frameworks = "HueSDK_iOS.framework"
+
+  s.xcconfig       = { 'FRAMEWORK_SEARCH_PATHS' => "'${PODS_ROOT}/PhilipsHueiOS/Frameworks/HueSDK_iOS.framework'" }
 
 end
