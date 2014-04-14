@@ -9,15 +9,14 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '6.0'
   s.osx.deployment_target = '10.8'
 
+  # We can use the official PhilipsHue SDK once we confirm everything is working with the podfile and then do a pull request.
   s.source       = { :git => 'git@github.com:objectiveSee/PhilipsHueSDK-iOS-OSX.git', :tag => 'v1.1.3beta' }
-
 
   s.dependency 'CocoaLumberjack', '~> 1.8'
 
-
-  s.ios.public_header_files = 'HueSDK_iOS.framework/Headers/*'
-  s.ios.vendored_frameworks = "HueSDK_iOS.framework"
-
+  s.vendored_frameworks = "HueSDK_iOS.framework"
   s.xcconfig       = { 'FRAMEWORK_SEARCH_PATHS' => "'${PODS_ROOT}/PhilipsHueiOS/Frameworks/HueSDK_iOS.framework'" }
+
+  s.compiler_flags = '-ObjC'
 
 end
